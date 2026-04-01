@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messerjocke – AI Music Production</title>
+  <meta name="description" content="KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundmusik, vollständige Songs – schnell, günstig, professionell.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Messerjocke – AI Music Production">
+  <meta property="og:description" content="Custom AI-Musik: Jingles, Background Tracks, Full Songs. Lieferung in unter 48h.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://messerjocke.de">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Messerjocke – AI Music Production">
+  <meta name="twitter:description" content="KI-Musik für Creator & Brands. Jetzt anfragen.">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* === NAV === */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* === HERO === */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(124,92,255,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,77,106,0.05) 0%, transparent 50%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%237c5cff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      background: rgba(124,92,255,0.05);
+      position: relative;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--hot) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 24px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(124,92,255,0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-spotify {
+      background: #1DB954;
+      color: #fff;
+    }
+
+    .btn-spotify:hover {
+      background: #1ed760;
+      transform: translateY(-2px);
+    }
+
+    .hero-note {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      position: relative;
+    }
+
+    /* === STATS === */
+    .stats {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 2.5rem 3rem;
+      border-right: 1px solid var(--border);
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.25rem;
+    }
+
+    /* === SECTIONS === */
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 3rem;
+      max-width: 580px;
+      font-size: 1rem;
+    }
+
+    /* === SERVICES GRID === */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--hot));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* === LISTEN SECTION === */
+    .listen-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .listen-section .section-title { margin-bottom: 0.5rem; }
+
+    .spotify-embed-wrap {
+      max-width: 700px;
+      margin: 2.5rem auto 0;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+
+    .spotify-embed-wrap iframe {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    .listen-cta {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* === PLATFORMS === */
+    .platforms {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .platform-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.1rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* === PRICING === */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 0 40px var(--accent-glow);
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .price-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .price-tag {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0.5rem 0;
+      line-height: 1;
+    }
+
+    .price-tag small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .price-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-card ul {
+      list-style: none;
+      margin: 0 0 2rem;
+      flex: 1;
+    }
+
+    .price-card li {
+      padding: 0.45rem 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .price-card li::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(124,92,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%237c5cff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* === FAQ === */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: var(--surface);
+      border: none;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .faq-q:hover { background: var(--surface2); }
+
+    .faq-q .chevron {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-q { background: var(--surface2); }
+    .faq-item.open .chevron { transform: rotate(180deg); }
+
+    .faq-a {
+      display: none;
+      padding: 0 1.5rem 1.25rem;
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-a { display: block; }
+
+    /* === CONTACT === */
+    .contact-section {
+      background: radial-gradient(ellipse at 50% 0%, rgba(124,92,255,0.08) 0%, transparent 60%);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 1.5rem 0;
+      transition: opacity 0.2s;
+    }
+
+    .contact-email:hover { opacity: 0.8; }
+
+    .contact-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-alts {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* === ANIMATIONS === */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 640px) {
+      .stat { padding: 1.75rem 1.25rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .cta-row { flex-direction: column; align-items: center; }
+      .contact-alts { flex-direction: column; align-items: center; }
+      footer { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Messer<span>jocke</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#listen">Musik</a></li>
+      <li><a href="#pricing">Preise</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta">Anfrage senden</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      KI-Musik · Live auf Spotify &amp; Apple Music
+    </div>
+    <h1>Musik, die <span class="grad">bewegt</span>.<br>Produziert von KI.<br>Kuratiert von Menschen.</h1>
+    <p class="hero-sub">KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundtracks, vollständige Songs — schnell geliefert, fair berechnet.</p>
+    <div class="cta-row">
+      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary">
+        ✉ Jetzt anfragen
+      </a>
+      <a href="#listen" class="btn btn-spotify">
+        ▶ Musik hören
+      </a>
+      <a href="#services" class="btn btn-outline">Services ansehen</a>
+    </div>
+    <p class="hero-note">Erste Antwort innerhalb von 24 Stunden &nbsp;·&nbsp; Lieferung in unter 48h</p>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat fade-in">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Produzierte Tracks</div>
+    </div>
+    <div class="stat fade-in fade-in-delay-1">
+      <div class="stat-num">37+</div>
+      <div class="stat-label">Songs auf Streaming</div>
+    </div>
+    <div class="stat fade-in fade-in-delay-2">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Genres &amp; Sprachen</div>
+    </div>
+    <div class="stat fade-in fade-in-delay-3">
+      <div class="stat-num">&lt;48h</div>
+      <div class="stat-label">Lieferzeit</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <p class="section-label">Was wir machen</p>
+    <h2 class="section-title">Musik für jeden Bedarf</h2>
+    <p class="section-sub">KI-generiert, menschlich kuratiert. Jeder Track wird bewertet, geprüft und gemastert, bevor er ausgeliefert wird.</p>
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">🎵</span>
+        <h3>Jingles &amp; Intros</h3>
+        <p>Kurze, prägnante Tracks für Podcasts, YouTube-Kanäle, Markenvideos und Apps. 5–30 Sekunden, jeder Stil.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">🎧</span>
+        <h3>Hintergrundmusik</h3>
+        <p>Ambient, Lo-Fi, Cinematic oder Upbeat. Perfekt für Content, Werbung, Präsentationen und Wartebereiche.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🎤</span>
+        <h3>Vollständige Songs</h3>
+        <p>Komplette Songs mit Gesang, Lyrics und Produktion. Pop, Latin, Electro, French Pop und mehr.</p>
+      </div>
+      <div class="card fade-in">
+        <span class="card-icon">⚡</span>
+        <h3>Custom Production</h3>
+        <p>Beschreibe was du brauchst. Genre, Stimmung, Tempo, Sprache. Wir produzieren, du genehmigst. Revisionen inklusive.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">🎬</span>
+        <h3>Social Media Assets</h3>
+        <p>Fertig für TikTok, Reels und YouTube Shorts. Musik + Visuals + Captions in einem Paket.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">📦</span>
+        <h3>Musik-Packs</h3>
+        <p>Vorgefertigte Bundles: 5 oder 10 Tracks zu einem Thema. Herunterladen, nutzen, fertig. Kommerzielle Lizenz inklusive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section class="listen-section" id="listen">
+    <p class="section-label" style="text-align:center;">Jetzt anhören</p>
+    <h2 class="section-title">Unsere Musik auf Streaming</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;font-size:0.95rem;">Weltweit verfügbar über DistroKid — auf allen großen Plattformen.</p>
+
+    <!-- Spotify Embed (Artist Page) -->
+    <div class="spotify-embed-wrap fade-in">
+      <iframe
+        src="https://open.spotify.com/embed/artist/4DhynD1iJwYZqwdwCwu2PD?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameBorder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="listen-cta">
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify">
+        ▶ Auf Spotify öffnen
+      </a>
+      <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline">
+        🎵 Apple Music
+      </a>
+    </div>
+
+    <div class="platforms">
+      <span class="platform-chip">✓ Spotify</span>
+      <span class="platform-chip">✓ Apple Music</span>
+      <span class="platform-chip">✓ Amazon Music</span>
+      <span class="platform-chip">✓ YouTube Music</span>
+      <span class="platform-chip">✓ Deezer</span>
+      <span class="platform-chip">✓ Tidal</span>
+      <span class="platform-chip">+ 30 weitere</span>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <p class="section-label">Preise</p>
+    <h2 class="section-title">Einfache Preise</h2>
+    <p class="section-sub">Keine Abonnements. Zahle pro Projekt oder schnapp dir ein Pack.</p>
+    <div class="pricing-grid">
+
+      <div class="price-card fade-in">
+        <h3>Starter Pack</h3>
+        <div class="price-tag">€29 <small>/ 3 Tracks</small></div>
+        <p class="price-desc">Perfekt für erste Projekte und Tests.</p>
+        <ul>
+          <li>3 Jingles oder Kurztracks</li>
+          <li>Jedes Genre oder jede Stimmung</li>
+          <li>MP3 + WAV Lieferung</li>
+          <li>Kommerzielle Lizenz</li>
+          <li>Lieferung in 48h</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Starter%20Pack%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Jetzt bestellen</a>
+      </div>
+
+      <div class="price-card featured fade-in fade-in-delay-1">
+        <div class="featured-badge">Beliebteste Wahl</div>
+        <h3>Creator Pack</h3>
+        <div class="price-tag">€79 <small>/ 10 Tracks</small></div>
+        <p class="price-desc">Für Content Creator und kleine Unternehmen.</p>
+        <ul>
+          <li>10 Hintergrundtracks</li>
+          <li>Gemischte Genres &amp; Stimmungen</li>
+          <li>MP3 + WAV + Stems</li>
+          <li>Kommerzielle Lizenz</li>
+          <li>1 kostenlose Revision</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Creator%20Pack%20Anfrage" class="btn btn-primary" style="width:100%;justify-content:center;">Jetzt bestellen</a>
+      </div>
+
+      <div class="price-card fade-in fade-in-delay-2">
+        <h3>Custom Track</h3>
+        <div class="price-tag">€149 <small>/ Track</small></div>
+        <p class="price-desc">Vollständiger Song, dein Brief, dein Style.</p>
+        <ul>
+          <li>Vollständiger Song mit Gesang</li>
+          <li>Dein Brief, dein Stil</li>
+          <li>MP3 + WAV + Stems</li>
+          <li>Cover Art inklusive</li>
+          <li>2 Revisionen</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Custom%20Track%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Anfrage starten</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <p class="section-label">Häufige Fragen</p>
+    <h2 class="section-title">FAQ</h2>
+    <p class="section-sub">Du hast Fragen? Wir haben Antworten.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Wie lange dauert die Lieferung?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Standard-Lieferzeit sind 24–48 Stunden nach Auftragseingang. Für komplexe Custom Tracks kann es bis zu 72 Stunden dauern. Auf Wunsch ist Express-Lieferung möglich.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Darf ich die Musik kommerziell nutzen?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Ja. Alle Tracks kommen mit vollständiger kommerzieller Lizenz. Du darfst sie in YouTube-Videos, Werbung, Podcasts, Apps und anderen kommerziellen Projekten nutzen.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Welche Genres sind möglich?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Wir produzieren Pop, Latin, Electro, French Pop, Deutschpop, Lo-Fi, Ambient, Cinematic und mehr. Wenn du ein spezifisches Genre oder eine Stimmung im Kopf hast, schreib uns einfach.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Was passiert, wenn mir der Track nicht gefällt?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Creator Pack enthält 1 kostenlose Revision, Custom Track enthält 2 Revisionen. Wir arbeiten so lange, bis du zufrieden bist. Dein Brief ist unser Ausgangspunkt — je detaillierter, desto besser das Ergebnis.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Bekomme ich die Stems (einzelne Spuren)?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Stems sind beim Creator Pack und Custom Track enthalten. Mit Stems kannst du einzelne Instrumente, Gesang und Rhythmus separat weiterbearbeiten.
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          In welchen Sprachen produziert ihr?
+          <span class="chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          Aktuell: Deutsch, Englisch, Spanisch und Französisch. Weitere Sprachen auf Anfrage.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <p class="section-label" style="text-align:center;">Kontakt</p>
+    <h2 class="section-title">Bereit loszulegen?</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;font-size:0.95rem;">Schick uns dein Brief. Erste Antwort innerhalb von 24 Stunden.</p>
+    <div style="margin-top:2rem;">
+      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="contact-email">
+        ✉ messerjocke@proton.me
+      </a>
+      <p class="contact-meta">Oder nutze einen der direkten Links:</p>
+    </div>
+    <div class="contact-alts">
+      <a href="mailto:messerjocke@proton.me?subject=Starter%20Pack%20Anfrage" class="btn btn-outline">Starter Pack anfragen</a>
+      <a href="mailto:messerjocke@proton.me?subject=Creator%20Pack%20Anfrage" class="btn btn-primary">Creator Pack anfragen</a>
+      <a href="mailto:messerjocke@proton.me?subject=Custom%20Track%20Anfrage" class="btn btn-outline">Custom Track anfragen</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</span>
+    <span>
+      <a href="mailto:messerjocke@proton.me">Kontakt</a>
+      &nbsp;·&nbsp;
+      <a href="https://open.spotify.com/artist/2YzVXkumveL8JiNsFcGV8t" target="_blank" rel="noopener">Spotify</a>
+    </span>
+  </footer>
+
+  <script>
+    // FAQ Toggle
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Nav shadow on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.borderBottomColor = window.scrollY > 20
+        ? 'rgba(124,92,255,0.2)'
+        : 'rgba(30,30,46,0.6)';
+    });
+  </script>
+
+</body>
+</html>
