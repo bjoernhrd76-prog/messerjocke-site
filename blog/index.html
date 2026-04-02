@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI Musik Blog | Tipps, Trends und Wissen - Messerjocke</title>
+  <meta name="description" content="Alles ueber KI-Musikproduktion: Rechtliches, Kosten, Vergleiche und Praxis-Tipps fuer Unternehmen, Creator und Filmemacher. Der Blog von Messerjocke.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/blog/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+
+  <meta property="og:title" content="KI Musik Blog | Messerjocke">
+  <meta property="og:description" content="Wissen rund um KI-Musikproduktion: Rechte, Kosten, Vergleiche und Guides.">
+  <meta property="og:type" content="website">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Messerjocke KI Musik Blog",
+    "description": "Alles ueber KI-Musikproduktion: Rechtliches, Kosten, Vergleiche und Praxis-Tipps.",
+    "url": "https://bjoernhrd76-prog.github.io/messerjocke-site/blog/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Messerjocke AI Music Production"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Navigation */
+    .blog-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6);
+    }
+    .blog-nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .blog-nav a:hover { color: var(--text); }
+    .nav-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text) !important; }
+    .nav-logo span { color: var(--accent); }
+
+    /* Hero */
+    .blog-hero {
+      padding: 8rem 2rem 3rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(124,92,255,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,77,106,0.05) 0%, transparent 50%);
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .blog-hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Article List */
+    .articles-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .article-card:hover {
+      border-color: rgba(124,92,255,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .card-tag {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      background: rgba(124,92,255,0.1);
+      color: var(--accent);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .article-card h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .article-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .read-more::after {
+      content: '\2192';
+      transition: transform 0.2s;
+    }
+
+    .article-card:hover .read-more::after {
+      transform: translateX(4px);
+    }
+
+    /* CTA */
+    .blog-cta {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      padding: 0 2rem;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, rgba(124,92,255,0.1), rgba(255,77,106,0.05));
+      border: 1px solid var(--accent);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px var(--accent-glow);
+      color: #fff;
+    }
+
+    /* Footer */
+    .blog-footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 640px) {
+      .blog-hero { padding: 6rem 1.25rem 2rem; }
+      .articles-grid { padding: 0 1.25rem 3rem; }
+      .article-card { padding: 1.5rem; }
+      .cta-box { padding: 1.5rem; }
+      .blog-cta { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="blog-nav">
+  <a href="../index.html" class="nav-logo">messer<span>jocke</span></a>
+  <div style="display:flex;gap:1.5rem;align-items:center;">
+    <a href="../index.html#tracks">Tracks</a>
+    <a href="../index.html#pricing">Preise</a>
+    <a href="../index.html#contact">Kontakt</a>
+  </div>
+</nav>
+
+<section class="blog-hero">
+  <h1>Blog: KI-Musik Wissen und Trends</h1>
+  <p>Alles ueber KI-Musikproduktion, Rechte, Kosten und Praxis-Tipps fuer Unternehmen, Content Creator und Filmemacher.</p>
+</section>
+
+<div class="articles-grid">
+
+  <!-- Article 1 -->
+  <a href="ki-musik-erstellen-lassen.html" class="article-card">
+    <div class="card-meta">
+      <span class="card-tag">KI-Musikproduktion</span>
+      <span>2. April 2026</span>
+      <span>8 Min.</span>
+    </div>
+    <h2>KI-Musik erstellen lassen: So funktioniert professionelle AI-Musikproduktion</h2>
+    <p>Vom Briefing bis zum fertigen Track: Wie professionelle KI-Musikproduktion ablaeuft, welche Vorteile sie bietet und worauf Sie bei der Auswahl eines Anbieters achten sollten.</p>
+    <span class="read-more">Artikel lesen</span>
+  </a>
+
+  <!-- Article 2 -->
+  <a href="jingle-erstellen-lassen-kosten.html" class="article-card">
+    <div class="card-meta">
+      <span class="card-tag">Kosten &amp; Preise</span>
+      <span>2. April 2026</span>
+      <span>9 Min.</span>
+    </div>
+    <h2>Jingle erstellen lassen: Was kostet es und welche Optionen gibt es?</h2>
+    <p>Kostenvergleich fuer Werbejingles: Klassisches Tonstudio, Freelancer, Stockmusik oder KI-Produktion? Alle vier Wege mit Preisen, Lieferzeiten und versteckten Kosten im Ueberblick.</p>
+    <span class="read-more">Artikel lesen</span>
+  </a>
+
+  <!-- Article 3 -->
+  <a href="ki-musik-kommerziell-nutzen.html" class="article-card">
+    <div class="card-meta">
+      <span class="card-tag">Recht &amp; Lizenzen</span>
+      <span>2. April 2026</span>
+      <span>10 Min.</span>
+    </div>
+    <h2>KI-generierte Musik kommerziell nutzen: Rechte, Lizenzen und GEMA</h2>
+    <p>Darf man KI-Musik kommerziell einsetzen? Was sagt das Urheberrecht? Wie steht es um GEMA-Gebuehren? Die wichtigsten Antworten fuer Unternehmen, Stand 2026.</p>
+    <span class="read-more">Artikel lesen</span>
+  </a>
+
+  <!-- Article 4 -->
+  <a href="hintergrundmusik-fuer-videos.html" class="article-card">
+    <div class="card-meta">
+      <span class="card-tag">Video &amp; Content</span>
+      <span>2. April 2026</span>
+      <span>9 Min.</span>
+    </div>
+    <h2>Hintergrundmusik fuer Videos: KI vs. Stock Music vs. Komponist</h2>
+    <p>Drei Wege zur Videomusik im direkten Vergleich: Stockmusik-Bibliotheken, klassische Auftragskomposition und KI-Produktion. Kosten, Qualitaet und Lizenzmodelle.</p>
+    <span class="read-more">Artikel lesen</span>
+  </a>
+
+  <!-- Article 5 -->
+  <a href="podcast-intro-musik-erstellen.html" class="article-card">
+    <div class="card-meta">
+      <span class="card-tag">Podcast</span>
+      <span>2. April 2026</span>
+      <span>9 Min.</span>
+    </div>
+    <h2>Podcast Intro Musik erstellen: Der komplette Guide 2026</h2>
+    <p>Alles ueber Podcast-Intros: Ideale Laenge, Struktur, vier Produktionswege mit Kosten und die haeufigsten Fehler, die Podcaster bei der Intro-Musik machen.</p>
+    <span class="read-more">Artikel lesen</span>
+  </a>
+
+</div>
+
+<div class="blog-cta">
+  <div class="cta-box">
+    <h2>Bereit fuer Ihre eigene Musik?</h2>
+    <p>Messerjocke produziert individuelle KI-Musik fuer Unternehmen, Creator und Filmemacher. GEMA-frei, in 48 Stunden, mit kommerzieller Lizenz.</p>
+    <a href="../index.html#contact" class="cta-btn">Jetzt unverbindlich anfragen</a>
+  </div>
+</div>
+
+<footer class="blog-footer">
+  <p>&copy; 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</p>
+</footer>
+
+</body>
+</html>
