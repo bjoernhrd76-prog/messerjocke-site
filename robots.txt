@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bjoernhrd76-prog.github.io/messerjocke-site/sitemap.xml

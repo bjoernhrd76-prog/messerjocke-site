@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum – Messerjocke AI Music Production</title>
+  <meta name="description" content="Impressum von Messerjocke AI Music Production. Angaben gemaess TMG &sect;5.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/impressum.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 2rem 1.5rem;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+    }
+
+    /* CONTENT */
+    .legal-page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 7rem 2rem 4rem;
+    }
+
+    .legal-page h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-page h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+    }
+
+    .legal-page p,
+    .legal-page ul,
+    .legal-page li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .legal-page ul {
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .legal-page li {
+      margin-bottom: 0.3rem;
+    }
+
+    .legal-page a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .legal-page a:hover {
+      color: var(--text);
+    }
+
+    .placeholder {
+      background: rgba(124, 92, 255, 0.1);
+      border: 1px dashed var(--accent);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      footer { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Messerjocke Startseite">Messer<span>jocke</span></a>
+    <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="navigation">
+      <li><a href="services.html" aria-label="Alle Services ansehen">Services</a></li>
+      <li><a href="about.html" aria-label="Ueber Messerjocke">About</a></li>
+      <li><a href="email-service.html" aria-label="Email-Automatisierung">Email-Automation</a></li>
+      <li><a href="kontakt.html" aria-label="Kontaktseite">Kontakt</a></li>
+      <li><a href="blog/" aria-label="Blog">Blog</a></li>
+    </ul>
+    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta" aria-label="Anfrage per E-Mail senden">Anfrage senden</a>
+  </nav>
+
+  <main class="legal-page">
+    <h1>Impressum</h1>
+
+    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+    <p>
+      <span class="placeholder">[VOLLSTAENDIGER NAME]</span><br>
+      <span class="placeholder">[STRASSE UND HAUSNUMMER]</span><br>
+      <span class="placeholder">[PLZ ORT]</span>
+    </p>
+
+    <h2>Kontakt</h2>
+    <p>
+      E-Mail: <a href="mailto:messerjocke@proton.me">messerjocke@proton.me</a>
+    </p>
+
+    <h2>Verantwortlich f&uuml;r den Inhalt nach &sect; 55 Abs. 2 RStV</h2>
+    <p>
+      <span class="placeholder">[VOLLSTAENDIGER NAME]</span><br>
+      <span class="placeholder">[STRASSE UND HAUSNUMMER]</span><br>
+      <span class="placeholder">[PLZ ORT]</span>
+    </p>
+
+    <h2>Umsatzsteuer</h2>
+    <p>
+      Kleinunternehmer gem&auml;&szlig; &sect; 19 UStG. Es wird keine Umsatzsteuer erhoben und daher auch keine Umsatzsteuer-Identifikationsnummer ausgewiesen.
+    </p>
+
+    <h2>EU-Streitschlichtung</h2>
+    <p>
+      Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+    </p>
+    <p>
+      Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+    </p>
+
+    <h2>Haftung f&uuml;r Inhalte</h2>
+    <p>
+      Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs. 1 TMG f&uuml;r eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach &sect;&sect; 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, &uuml;bermittelte oder gespeicherte fremde Informationen zu &uuml;berwachen oder nach Umst&auml;nden zu forschen, die auf eine rechtswidrige T&auml;tigkeit hinweisen.
+    </p>
+    <p>
+      Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber&uuml;hrt. Eine diesbez&uuml;gliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m&ouml;glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+    </p>
+
+    <h2>Haftung f&uuml;r Links</h2>
+    <p>
+      Unser Angebot enth&auml;lt Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen. F&uuml;r die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m&ouml;gliche Rechtsverst&ouml;&szlig;e &uuml;berpr&uuml;ft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+    </p>
+    <p>
+      Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf&auml;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&szlig;erhalb der Grenzen des Urheberrechtes bed&uuml;rfen der schriftlichen Zustimmung des Autors bzw. Erstellers.
+    </p>
+
+    <h2>Hinweis zu KI-generierten Inhalten</h2>
+    <p>
+      Teile der auf dieser Website pr&auml;sentierten Musik, Texte und Grafiken wurden unter Einsatz von K&uuml;nstlicher Intelligenz (KI) generiert oder bearbeitet. Die endg&uuml;ltige Auswahl, Bearbeitung und Ver&ouml;ffentlichung erfolgt durch den Seitenbetreiber. Die kommerzielle Nutzung KI-generierter Inhalte erfolgt im Rahmen der jeweils geltenden Lizenzbedingungen der eingesetzten KI-Dienste.
+    </p>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</span>
+    <span>
+      <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+      &nbsp;&middot;&nbsp;
+      <a href="services.html">Services</a>
+      &nbsp;&middot;&nbsp;
+      <a href="kontakt.html">Kontakt</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
+    </span>
+  </footer>
+
+  <noscript>
+    <style>
+      .nav-links { display: flex !important; }
+    </style>
+  </noscript>
+
+  <script>
+    function toggleMobileMenu() {
+      const btn = document.querySelector('.nav-toggle');
+      const links = document.getElementById('nav-links');
+      const isOpen = links.classList.toggle('open');
+      btn.classList.toggle('active');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+    document.querySelectorAll('#nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+        document.querySelector('.nav-toggle').classList.remove('active');
+        document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+</html>
