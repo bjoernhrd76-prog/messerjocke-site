@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email-Automatisierung – Messerjocke</title>
+  <meta name="description" content="KI-gestuetzte Email-Automatisierung fuer Handwerker, Dienstleister und Gastronomen. Nie wieder Anfragen verlieren. Setup in unter 2 Stunden, ab 149 EUR einmalig.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/email-service.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+
+  <meta property="og:title" content="Email-Automatisierung – Messerjocke">
+  <meta property="og:description" content="KI-Email-Autopilot fuer kleine Betriebe. Antwortzeit von Stunden auf Sekunden. Ab 149 EUR.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bjoernhrd76-prog.github.io/messerjocke-site/email-service.html">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.3s;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 0.55rem 1.25rem;
+      background: var(--accent); color: #fff; text-decoration: none;
+      border-radius: 8px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+    }
+
+    .page-hero {
+      min-height: 70vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      padding: 8rem 2rem 4rem;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(124,92,255,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,77,106,0.05) 0%, transparent 50%);
+    }
+    .page-hero .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem; border: 1px solid var(--border);
+      border-radius: 100px; font-size: 0.8rem; color: var(--accent);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem;
+      background: rgba(124,92,255,0.05);
+    }
+    .badge-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1.5rem;
+    }
+    .page-hero h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--hot) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 2rem; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .section-title { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .section-sub { color: var(--muted); margin-bottom: 3rem; max-width: 580px; font-size: 1rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem; transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--hot));
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card:hover::before { transform: scaleX(1); }
+    .card-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .card p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+
+    /* Problem boxes */
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
+    }
+    .problem-box {
+      background: var(--surface); border: 1px solid rgba(255,77,106,0.2);
+      border-radius: 14px; padding: 1.5rem; text-align: center;
+    }
+    .problem-box .number { font-size: 2.5rem; font-weight: 800; color: var(--hot); line-height: 1; }
+    .problem-box .label { color: var(--muted); font-size: 0.88rem; margin-top: 0.5rem; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; counter-reset: step; }
+    .step {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem; position: relative; counter-increment: step;
+    }
+    .step::before {
+      content: counter(step); position: absolute; top: -12px; left: 20px;
+      background: var(--accent); color: #fff; width: 28px; height: 28px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700;
+    }
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; margin-top: 0.25rem; }
+    .step p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    /* Case study */
+    .case-study {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2.5rem; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+    }
+    @media (max-width: 768px) { .case-study { grid-template-columns: 1fr; } }
+    .case-study h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+    .case-study p { color: var(--muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.75rem; }
+    .case-metrics { display: flex; flex-direction: column; gap: 1rem; }
+    .metric {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+    }
+    .metric-value { font-size: 1.5rem; font-weight: 800; color: var(--green); }
+    .metric-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* Pricing */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .price-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem; display: flex; flex-direction: column;
+    }
+    .price-card.featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); position: relative; }
+    .featured-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 0 0 8px 8px;
+    }
+    .price-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--muted); margin-bottom: 0.25rem; }
+    .price-tag { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin: 0.5rem 0; line-height: 1; }
+    .price-tag small { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+    .price-desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .price-card ul { list-style: none; margin: 0 0 2rem; flex: 1; }
+    .price-card li {
+      padding: 0.45rem 0; color: var(--muted); font-size: 0.9rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .price-card li::before {
+      content: ''; width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(124,92,255,0.15); flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%237c5cff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 24px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,92,255,0.4); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    .cta-section {
+      background: radial-gradient(ellipse at 50% 0%, rgba(124,92,255,0.08) 0%, transparent 60%);
+      border-top: 1px solid var(--border); text-align: center; padding: 6rem 2rem;
+    }
+
+    /* Trust badges */
+    .trust-row {
+      display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;
+    }
+    .trust-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.1rem; background: var(--surface2);
+      border: 1px solid var(--border); border-radius: 100px;
+      font-size: 0.85rem; font-weight: 500; color: var(--muted);
+    }
+
+    footer {
+      text-align: center; padding: 2rem; color: var(--muted); font-size: 0.82rem;
+      border-top: 1px solid var(--border); display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+
+    @media (max-width: 640px) {
+      footer { justify-content: center; }
+      .trust-row { flex-direction: column; align-items: center; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Messerjocke Email-Automatisierung",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Messerjocke",
+      "email": "messerjocke@proton.me"
+    },
+    "description": "KI-gestuetzte Email-Automatisierung fuer Handwerker, Dienstleister und Gastronomen. Automatische Antworten, Kategorisierung und Terminvorschlaege.",
+    "areaServed": "DE",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Email-Automatisierung Pakete",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Starter", "price": "149", "priceCurrency": "EUR", "description": "Einmaliges Setup mit 1 Workflow" },
+        { "@type": "Offer", "name": "Business", "price": "299", "priceCurrency": "EUR", "description": "3 Workflows mit individueller Anpassung" },
+        { "@type": "Offer", "name": "Premium", "price": "79", "priceCurrency": "EUR", "description": "Monatliche Betreuung und Optimierung" }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Messerjocke Startseite">Messer<span>jocke</span></a>
+    <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="navigation">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="email-service.html" class="active">Email-Automation</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <a href="mailto:messerjocke@proton.me?subject=Demo%20Email-Automatisierung" class="nav-cta">Demo anfragen</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Im produktiven Einsatz
+    </div>
+    <h1>Email-Automatisierung<br>fuer <span class="grad">Ihr Geschaeft</span></h1>
+    <p>Verpassen Sie nie wieder eine Kundenanfrage. Ihr digitaler Mitarbeiter antwortet rund um die Uhr — professionell, automatisch, sofort.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+      <a href="mailto:messerjocke@proton.me?subject=Demo%20Email-Automatisierung" class="btn btn-primary">Kostenlose Demo anfragen</a>
+      <a href="#how-it-works" class="btn btn-outline">So funktioniert's</a>
+    </div>
+    <div class="trust-row" style="margin-top:2rem;">
+      <span class="trust-badge">🔒 DSGVO-konform</span>
+      <span class="trust-badge">⚡ Setup in unter 2h</span>
+      <span class="trust-badge">💰 Ab 149 EUR einmalig</span>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PROBLEM -->
+  <section class="section">
+    <p class="section-label">Das Problem</p>
+    <h2 class="section-title">Jede unbeantwortete Anfrage ist ein verlorener Auftrag</h2>
+    <p class="section-sub">Die Realitaet fuer Handwerker, Dienstleister und Gastronomen: Waehrend Sie arbeiten, gehen Auftraege verloren.</p>
+
+    <div class="problem-grid fade-in">
+      <div class="problem-box">
+        <div class="number">78%</div>
+        <div class="label">der Kunden beauftragen den Anbieter, der zuerst antwortet</div>
+      </div>
+      <div class="problem-box">
+        <div class="number">8h+</div>
+        <div class="label">durchschnittliche Antwortzeit bei kleinen Betrieben</div>
+      </div>
+      <div class="problem-box">
+        <div class="number">2-5</div>
+        <div class="label">verpasste Auftraege pro Monat durch verzoegerte Antworten</div>
+      </div>
+      <div class="problem-box">
+        <div class="number">€1.000+</div>
+        <div class="label">entgangener Umsatz pro Monat</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SOLUTION -->
+  <section class="section">
+    <p class="section-label">Die Loesung</p>
+    <h2 class="section-title">Ihr digitaler Mitarbeiter</h2>
+    <p class="section-sub">KI-gestuetzte Email-Automatisierung, die 24/7 fuer Sie arbeitet. Kein IT-Wissen noetig. Laeuft im Hintergrund.</p>
+
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">⚡</span>
+        <h3>Auto-Antworten</h3>
+        <p>Sofortige, personalisierte Antwort auf jede eingehende Anfrage. In Ihrem Ton, mit Ihren Informationen. Rund um die Uhr.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">📂</span>
+        <h3>Intelligente Kategorisierung</h3>
+        <p>Die KI erkennt automatisch: Anfrage, Reklamation, Bewerbung oder Spam. Jede Kategorie bekommt eigene Regeln. Spam wird aussortiert.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🔀</span>
+        <h3>Smarte Weiterleitung</h3>
+        <p>Bestimmte Anfragen gehen automatisch an den richtigen Mitarbeiter. Dringende Anfragen werden priorisiert. Optional: SMS-Benachrichtigung.</p>
+      </div>
+      <div class="card fade-in">
+        <span class="card-icon">📅</span>
+        <h3>Terminvorschlaege</h3>
+        <p>Das System schlaegt automatisch Termine vor, basierend auf Ihren Verfuegbarkeiten. Weniger Hin-und-Her, schnellere Abschluesse.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how-it-works">
+    <p class="section-label">So funktioniert's</p>
+    <h2 class="section-title">In 3 Schritten zum Email-Autopiloten</h2>
+    <p class="section-sub">Der gesamte Prozess dauert unter 2 Stunden. Sie muessen nichts installieren und nichts Neues lernen.</p>
+
+    <div class="steps fade-in">
+      <div class="step">
+        <h3>Setup (ca. 30 Min.)</h3>
+        <p>Wir verbinden das System mit Ihrem bestehenden Email-Postfach. Gmail, Outlook, Web.de, GMX — alles moeglich. Sie muessen nichts installieren.</p>
+      </div>
+      <div class="step">
+        <h3>Konfiguration (ca. 60 Min.)</h3>
+        <p>Gemeinsam legen wir fest, wie Ihr System antworten soll. Welche Anfragen automatisch beantwortet werden, welcher Ton, welche Weiterleitungsregeln.</p>
+      </div>
+      <div class="step">
+        <h3>Autopilot</h3>
+        <p>Ab sofort antwortet Ihr System automatisch. Sie erhalten eine taegliche Zusammenfassung aller Aktivitaeten. Jederzeit anpassbar.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CASE STUDY -->
+  <section class="section" id="case-study">
+    <p class="section-label">Referenz</p>
+    <h2 class="section-title">In der Praxis bewaehrt</h2>
+    <p class="section-sub">Restaurant Teuwsen: Von 6 Stunden Antwortzeit auf unter 2 Minuten.</p>
+
+    <div class="case-study fade-in">
+      <div>
+        <h3>Restaurant Teuwsen</h3>
+        <p>
+          Gastronomiebetrieb mit hohem taeglichen Anfragevolumen: Reservierungen, Eventanfragen, Reklamationen, Lieferantenanfragen — alles per Email.
+        </p>
+        <p>
+          Vor der Automatisierung blieben Anfragen stundenlang unbeantwortet, besonders waehrend der Stosszeiten. Reservierungen gingen verloren, Eventanfragen blieben liegen.
+        </p>
+        <p>
+          Seit der Einfuehrung des Systems werden alle Anfragen automatisch beantwortet und kategorisiert. Das Kuechen-Team und die Service-Leitung erhalten nur noch relevante, vorsortierte Emails.
+        </p>
+      </div>
+      <div class="case-metrics">
+        <div class="metric">
+          <div class="metric-value">6h → &lt;2 Min</div>
+          <div class="metric-label">Antwortzeit-Reduktion</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">Produktiv</div>
+          <div class="metric-label">System laeuft stabil im Tagesbetrieb</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">0</div>
+          <div class="metric-label">Verpasste Reservierungen seit Einfuehrung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ROI -->
+  <section class="section">
+    <p class="section-label">Return on Investment</p>
+    <h2 class="section-title">Das System amortisiert sich mit dem ersten geretteten Auftrag</h2>
+    <p class="section-sub">Die Rechnung ist einfach: Ein verpasster Auftrag kostet Sie mehr als unser System.</p>
+
+    <div class="grid fade-in">
+      <div class="card">
+        <span class="card-icon">🔧</span>
+        <h3>Rechenbeispiel: Handwerker</h3>
+        <p>Durchschnittlicher Auftragswert: 500 - 2.000 EUR. Verpasste Auftraege pro Monat durch verzoegerte Antworten: 2-5. Verlorener Umsatz: 1.000 - 10.000 EUR pro Monat.</p>
+        <p style="color:var(--green);font-weight:700;margin-top:1rem;">Systemkosten: 149 EUR einmalig</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🍽️</span>
+        <h3>Rechenbeispiel: Gastronomie</h3>
+        <p>Umsatz pro Tisch/Abend: 80 - 200 EUR. Verpasste Reservierungen pro Woche: 3-8. Verlorener Umsatz: 960 - 6.400 EUR pro Monat.</p>
+        <p style="color:var(--green);font-weight:700;margin-top:1rem;">Refinanziert sich in weniger als einer Woche</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <p class="section-label">Preise</p>
+    <h2 class="section-title">Transparente Preise. Kein Abo-Zwang.</h2>
+    <p class="section-sub">Einmalige Pakete sind echte Einmalzahlungen. Kein verstecktes Abo, kein Kleingedrucktes.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <h3>Starter</h3>
+        <div class="price-tag">€149 <small>einmalig</small></div>
+        <p class="price-desc">Schneller Einstieg fuer Einzelunternehmer.</p>
+        <ul>
+          <li>Komplettes Setup</li>
+          <li>1 Workflow (z.B. Auto-Antwort)</li>
+          <li>Anbindung an Ihr Postfach</li>
+          <li>30 Min. Videocall-Einrichtung</li>
+          <li>14 Tage Email-Support</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Starter%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Jetzt starten</a>
+      </div>
+
+      <div class="price-card featured fade-in fade-in-delay-1">
+        <div class="featured-badge">Empfohlen</div>
+        <h3>Business</h3>
+        <div class="price-tag">€299 <small>einmalig</small></div>
+        <p class="price-desc">Fuer Betriebe mit mehreren Anfragetypen.</p>
+        <ul>
+          <li>Alles aus Starter</li>
+          <li>3 Workflows</li>
+          <li>Individuelle Antworttexte</li>
+          <li>Kategorisierung &amp; Weiterleitung</li>
+          <li>60 Min. Videocall-Einrichtung</li>
+          <li>30 Tage Email-Support</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Business%20Anfrage" class="btn btn-primary" style="width:100%;justify-content:center;">Jetzt starten</a>
+      </div>
+
+      <div class="price-card fade-in fade-in-delay-2">
+        <h3>Premium</h3>
+        <div class="price-tag">€79 <small>/Monat</small></div>
+        <p class="price-desc">Laufende Betreuung und Optimierung.</p>
+        <ul>
+          <li>Alles aus Business</li>
+          <li>Laufende Wartung &amp; Optimierung</li>
+          <li>Monatliche Performance-Auswertung</li>
+          <li>Priority Support (4h Antwortzeit)</li>
+          <li>Neue Workflows inklusive</li>
+          <li>Monatlich kuendbar</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Premium%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Kontakt aufnehmen</a>
+      </div>
+    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:0.85rem;margin-top:2rem;">Alle Preise netto zzgl. USt.</p>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p class="section-label" style="text-align:center;">Jetzt starten</p>
+    <h2 class="section-title">Kostenlose Demo in 15 Minuten</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;margin-bottom:2rem;font-size:1rem;max-width:600px;margin-left:auto;margin-right:auto;">
+      Erleben Sie live, wie Ihr Email-Autopilot funktioniert. Kein Risiko. Keine Verpflichtung. Einfach anschauen.
+    </p>
+    <a href="mailto:messerjocke@proton.me?subject=Demo%20Email-Automatisierung" class="btn btn-primary">
+      Kostenlose Demo anfragen
+    </a>
+    <div class="trust-row">
+      <span class="trust-badge">🇪🇺 Daten bleiben in der EU</span>
+      <span class="trust-badge">🔒 DSGVO-konform</span>
+      <span class="trust-badge">⏱️ Setup in unter 2h</span>
+      <span class="trust-badge">💰 Einmalig ab 149 EUR</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</span>
+    <span>
+      <a href="kontakt.html">Kontakt</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
+    </span>
+  </footer>
+
+  <noscript><style>.fade-in{opacity:1;transform:none;}.nav-links{display:flex!important;}</style></noscript>
+  <script>
+    function toggleMobileMenu(){const b=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');const o=l.classList.toggle('open');b.classList.toggle('active');b.setAttribute('aria-expanded',o);}
+    document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('active');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');}));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>

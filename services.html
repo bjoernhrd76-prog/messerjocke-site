@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services – Messerjocke AI Music & Email Automation</title>
+  <meta name="description" content="Messerjocke Services: KI-Musikproduktion (Jingles, Hintergrundmusik, Songs) und Email-Automatisierung fuer kleine Betriebe. Preise ab 29 EUR.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/services.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Services – Messerjocke AI Music & Email Automation">
+  <meta property="og:description" content="KI-Musikproduktion und Email-Automatisierung. Preise ab 29 EUR.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bjoernhrd76-prog.github.io/messerjocke-site/services.html">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6);
+      transition: background 0.3s;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 0.55rem 1.25rem;
+      background: var(--accent); color: #fff; text-decoration: none;
+      border-radius: 8px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+    }
+
+    .page-hero {
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(124,92,255,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,77,106,0.05) 0%, transparent 50%);
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem;
+    }
+    .page-hero h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--hot) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .section-title { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .section-sub { color: var(--muted); margin-bottom: 3rem; max-width: 580px; font-size: 1rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem; transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--hot));
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card:hover::before { transform: scaleX(1); }
+    .card-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .card p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+    .card ul { list-style: none; margin-top: 1rem; }
+    .card ul li {
+      padding: 0.35rem 0; color: var(--muted); font-size: 0.88rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .card ul li::before {
+      content: ''; width: 14px; height: 14px; border-radius: 50%;
+      background: rgba(124,92,255,0.15); flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%237c5cff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+
+    .price-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 2rem; display: flex; flex-direction: column;
+    }
+    .price-card.featured { border-color: var(--accent); box-shadow: 0 0 40px var(--accent-glow); position: relative; }
+    .featured-badge {
+      position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 0.3rem 1rem; border-radius: 0 0 8px 8px;
+    }
+    .price-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--muted); margin-bottom: 0.25rem; }
+    .price-tag { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin: 0.5rem 0; line-height: 1; }
+    .price-tag small { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+    .price-desc { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .price-card ul { list-style: none; margin: 0 0 2rem; flex: 1; }
+    .price-card li {
+      padding: 0.45rem 0; color: var(--muted); font-size: 0.9rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .price-card li::before {
+      content: ''; width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(124,92,255,0.15); flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='%237c5cff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 24px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,92,255,0.4); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+    .comparison-table th, .comparison-table td {
+      padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.92rem;
+    }
+    .comparison-table th { color: var(--accent); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; }
+    .comparison-table td { color: var(--muted); }
+    .comparison-table td:first-child { color: var(--text); font-weight: 500; }
+    .comparison-table tr:hover td { background: rgba(124,92,255,0.03); }
+    .check { color: var(--green); }
+    .cross { color: var(--muted); opacity: 0.4; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    footer {
+      text-align: center; padding: 2rem; color: var(--muted); font-size: 0.82rem;
+      border-top: 1px solid var(--border); display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+
+    @media (max-width: 640px) {
+      .comparison-table { font-size: 0.85rem; }
+      .comparison-table th, .comparison-table td { padding: 0.75rem 0.5rem; }
+      footer { justify-content: center; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Messerjocke AI Music Production",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Messerjocke",
+      "url": "https://bjoernhrd76-prog.github.io/messerjocke-site/"
+    },
+    "description": "KI-generierte Musik und Email-Automatisierung fuer Creator, Marken und kleine Betriebe.",
+    "areaServed": "DE",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Messerjocke Services",
+      "itemListElement": [
+        { "@type": "Offer", "name": "Starter Pack", "price": "29", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Creator Pack", "price": "79", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Custom Track", "price": "149", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Email Starter", "price": "149", "priceCurrency": "EUR" },
+        { "@type": "Offer", "name": "Email Business", "price": "299", "priceCurrency": "EUR" }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Messerjocke Startseite">Messer<span>jocke</span></a>
+    <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="navigation">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="email-service.html">Email-Automation</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <a href="mailto:messerjocke@proton.me?subject=Anfrage" class="nav-cta">Anfrage senden</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <h1>Unsere <span class="grad">Services</span></h1>
+    <p>KI-Musikproduktion und Email-Automatisierung. Zwei Kernbereiche, ein Versprechen: Ergebnisse, die wirken.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- MUSIC PRODUCTION -->
+  <section class="section" id="music">
+    <p class="section-label">KI-Musikproduktion</p>
+    <h2 class="section-title">Musik fuer jeden Bedarf</h2>
+    <p class="section-sub">Von kurzen Jingles bis hin zu vollstaendigen Songs mit Gesang. KI-generiert, menschlich kuratiert und qualitaetsgesichert.</p>
+
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">🎵</span>
+        <h3>Jingles &amp; Intros</h3>
+        <p>Kurze, praegnante Tracks fuer Podcasts, YouTube-Kanaele, Markenvideos und Apps. 5-30 Sekunden, jeder Stil.</p>
+        <ul>
+          <li>Podcast-Intros &amp; Outros</li>
+          <li>YouTube-Kanalmusik</li>
+          <li>App-Sounds &amp; Notifications</li>
+          <li>Werbespots</li>
+        </ul>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">🎧</span>
+        <h3>Hintergrundmusik</h3>
+        <p>Ambient, Lo-Fi, Cinematic oder Upbeat. Perfekt fuer Content, Werbung, Praesentationen und Wartebereiche.</p>
+        <ul>
+          <li>Content-Untermalung</li>
+          <li>Werbefilm-Soundtracks</li>
+          <li>Praesentationsmusik</li>
+          <li>Warteschleifen &amp; Raumklang</li>
+        </ul>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🎤</span>
+        <h3>Vollstaendige Songs</h3>
+        <p>Komplette Songs mit Gesang, Lyrics und Produktion. Pop, Latin, Electro, French Pop und mehr.</p>
+        <ul>
+          <li>Gesang in 4+ Sprachen</li>
+          <li>Eigene Lyrics oder unsere</li>
+          <li>Cover Art inklusive</li>
+          <li>Streaming-ready</li>
+        </ul>
+      </div>
+      <div class="card fade-in">
+        <span class="card-icon">⚡</span>
+        <h3>Custom Production</h3>
+        <p>Beschreibe was du brauchst. Genre, Stimmung, Tempo, Sprache. Wir produzieren, du genehmigst.</p>
+        <ul>
+          <li>Briefing-basierte Produktion</li>
+          <li>Revisionen inklusive</li>
+          <li>Stems auf Wunsch</li>
+          <li>Kommerzielle Lizenz</li>
+        </ul>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">🎬</span>
+        <h3>Social Media Assets</h3>
+        <p>Fertig fuer TikTok, Reels und YouTube Shorts. Musik + Visuals + Captions in einem Paket.</p>
+        <ul>
+          <li>TikTok-optimierte Tracks</li>
+          <li>Reels &amp; Shorts-Formate</li>
+          <li>Visuals &amp; Captions</li>
+          <li>Trendgerechte Produktion</li>
+        </ul>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">📦</span>
+        <h3>Musik-Packs</h3>
+        <p>Vorgefertigte Bundles: 5 oder 10 Tracks zu einem Thema. Kommerzielle Lizenz inklusive.</p>
+        <ul>
+          <li>Thematische Bundles</li>
+          <li>Sofort einsatzbereit</li>
+          <li>MP3 + WAV</li>
+          <li>Mengenrabatt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC PRICING -->
+  <section class="section" id="music-pricing">
+    <p class="section-label">Musikproduktion — Preise</p>
+    <h2 class="section-title">Einfache Preise, keine Abos</h2>
+    <p class="section-sub">Zahle pro Projekt oder schnapp dir ein Pack. Kommerzielle Lizenz immer inklusive.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <h3>Starter Pack</h3>
+        <div class="price-tag">€29 <small>/ 3 Tracks</small></div>
+        <p class="price-desc">Perfekt fuer erste Projekte und Tests.</p>
+        <ul>
+          <li>3 Jingles oder Kurztracks</li>
+          <li>Jedes Genre oder jede Stimmung</li>
+          <li>MP3 + WAV Lieferung</li>
+          <li>Kommerzielle Lizenz</li>
+          <li>Lieferung in 48h</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Starter%20Pack%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Jetzt bestellen</a>
+      </div>
+
+      <div class="price-card featured fade-in fade-in-delay-1">
+        <div class="featured-badge">Beliebteste Wahl</div>
+        <h3>Creator Pack</h3>
+        <div class="price-tag">€79 <small>/ 10 Tracks</small></div>
+        <p class="price-desc">Fuer Content Creator und kleine Unternehmen.</p>
+        <ul>
+          <li>10 Hintergrundtracks</li>
+          <li>Gemischte Genres &amp; Stimmungen</li>
+          <li>MP3 + WAV + Stems</li>
+          <li>Kommerzielle Lizenz</li>
+          <li>1 kostenlose Revision</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Creator%20Pack%20Anfrage" class="btn btn-primary" style="width:100%;justify-content:center;">Jetzt bestellen</a>
+      </div>
+
+      <div class="price-card fade-in fade-in-delay-2">
+        <h3>Custom Track</h3>
+        <div class="price-tag">€149 <small>/ Track</small></div>
+        <p class="price-desc">Vollstaendiger Song, dein Brief, dein Style.</p>
+        <ul>
+          <li>Vollstaendiger Song mit Gesang</li>
+          <li>Dein Brief, dein Stil</li>
+          <li>MP3 + WAV + Stems</li>
+          <li>Cover Art inklusive</li>
+          <li>2 Revisionen</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Custom%20Track%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Anfrage starten</a>
+      </div>
+    </div>
+
+    <!-- Feature Comparison -->
+    <table class="comparison-table fade-in" style="margin-top:3rem;">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Starter (€29)</th>
+          <th>Creator (€79)</th>
+          <th>Custom (€149)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Anzahl Tracks</td><td>3</td><td>10</td><td>1 (vollstaendig)</td></tr>
+        <tr><td>Genre-Auswahl</td><td class="check">Ja</td><td class="check">Ja</td><td class="check">Ja</td></tr>
+        <tr><td>MP3 + WAV</td><td class="check">Ja</td><td class="check">Ja</td><td class="check">Ja</td></tr>
+        <tr><td>Stems</td><td class="cross">--</td><td class="check">Ja</td><td class="check">Ja</td></tr>
+        <tr><td>Gesang</td><td class="cross">--</td><td class="cross">--</td><td class="check">Ja</td></tr>
+        <tr><td>Cover Art</td><td class="cross">--</td><td class="cross">--</td><td class="check">Ja</td></tr>
+        <tr><td>Revisionen</td><td class="cross">--</td><td>1</td><td>2</td></tr>
+        <tr><td>Kommerzielle Lizenz</td><td class="check">Ja</td><td class="check">Ja</td><td class="check">Ja</td></tr>
+        <tr><td>Lieferzeit</td><td>48h</td><td>48h</td><td>48-72h</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr class="divider">
+
+  <!-- EMAIL AUTOMATION -->
+  <section class="section" id="email">
+    <p class="section-label">Email-Automatisierung</p>
+    <h2 class="section-title">Nie wieder Anfragen verlieren</h2>
+    <p class="section-sub">KI-gestuetzte Email-Automatisierung fuer Handwerker, Dienstleister und Gastronomen. 24/7 professionelle Antworten.</p>
+
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">⚡</span>
+        <h3>Auto-Antworten</h3>
+        <p>Sofortige, personalisierte Antwort auf jede eingehende Anfrage. In Ihrem Ton, rund um die Uhr.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">📂</span>
+        <h3>Intelligente Kategorisierung</h3>
+        <p>KI erkennt automatisch: Anfrage, Reklamation, Bewerbung oder Spam. Jede Kategorie bekommt eigene Regeln.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🔀</span>
+        <h3>Smarte Weiterleitung</h3>
+        <p>Bestimmte Anfragen gehen automatisch an den richtigen Mitarbeiter. Dringende Anfragen werden priorisiert.</p>
+      </div>
+      <div class="card fade-in">
+        <span class="card-icon">📅</span>
+        <h3>Terminvorschlaege</h3>
+        <p>Das System schlaegt automatisch Termine vor. Kunden koennen direkt waehlen. Weniger Hin-und-Her.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="email-service.html" class="btn btn-primary">Mehr erfahren: Email-Automation</a>
+    </div>
+  </section>
+
+  <!-- EMAIL PRICING -->
+  <section class="section" id="email-pricing">
+    <p class="section-label">Email-Automatisierung — Preise</p>
+    <h2 class="section-title">Transparente Preise</h2>
+    <p class="section-sub">Kein Abo-Zwang. Kein Kleingedrucktes. Einmalige Pakete oder laufende Betreuung.</p>
+
+    <div class="pricing-grid">
+      <div class="price-card fade-in">
+        <h3>Starter</h3>
+        <div class="price-tag">€149 <small>einmalig</small></div>
+        <p class="price-desc">Schneller Einstieg fuer Einzelunternehmer.</p>
+        <ul>
+          <li>Komplettes Setup</li>
+          <li>1 Workflow (z.B. Auto-Antwort)</li>
+          <li>Anbindung an Ihr Postfach</li>
+          <li>30 Min. Videocall-Einrichtung</li>
+          <li>14 Tage Email-Support</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Starter%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Jetzt starten</a>
+      </div>
+
+      <div class="price-card featured fade-in fade-in-delay-1">
+        <div class="featured-badge">Empfohlen</div>
+        <h3>Business</h3>
+        <div class="price-tag">€299 <small>einmalig</small></div>
+        <p class="price-desc">Fuer Betriebe mit mehreren Anfragetypen.</p>
+        <ul>
+          <li>Alles aus Starter</li>
+          <li>3 Workflows</li>
+          <li>Individuelle Antworttexte</li>
+          <li>Kategorisierung &amp; Weiterleitung</li>
+          <li>60 Min. Videocall-Einrichtung</li>
+          <li>30 Tage Email-Support</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Business%20Anfrage" class="btn btn-primary" style="width:100%;justify-content:center;">Jetzt starten</a>
+      </div>
+
+      <div class="price-card fade-in fade-in-delay-2">
+        <h3>Premium</h3>
+        <div class="price-tag">€79 <small>/Monat</small></div>
+        <p class="price-desc">Laufende Betreuung und Optimierung.</p>
+        <ul>
+          <li>Alles aus Business</li>
+          <li>Laufende Wartung &amp; Optimierung</li>
+          <li>Monatliche Performance-Auswertung</li>
+          <li>Priority Support (4h Antwortzeit)</li>
+          <li>Neue Workflows inklusive</li>
+          <li>Monatlich kuendbar</li>
+        </ul>
+        <a href="mailto:messerjocke@proton.me?subject=Email%20Premium%20Anfrage" class="btn btn-outline" style="width:100%;justify-content:center;">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="text-align:center;padding-bottom:6rem;">
+    <h2 class="section-title">Bereit loszulegen?</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;margin-bottom:2rem;font-size:1rem;">Schreib uns eine kurze Nachricht. Erste Antwort innerhalb von 24 Stunden.</p>
+    <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</span>
+    <span>
+      <a href="kontakt.html">Kontakt</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
+    </span>
+  </footer>
+
+  <noscript><style>.fade-in{opacity:1;transform:none;}.nav-links{display:flex!important;}</style></noscript>
+  <script>
+    function toggleMobileMenu(){const b=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');const o=l.classList.toggle('open');b.classList.toggle('active');b.setAttribute('aria-expanded',o);}
+    document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('active');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');}));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>

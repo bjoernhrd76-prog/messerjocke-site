@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Messerjocke AI Music Production</title>
+  <meta name="description" content="Die Geschichte hinter Messerjocke: KI-gestuetzte Musikproduktion aus Deutschland. Pop, Latin, Electro und mehr. Auf Spotify, Apple Music und 30+ Plattformen.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/about.html">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+
+  <meta property="og:title" content="About – Messerjocke AI Music Production">
+  <meta property="og:description" content="KI-Musikproduktion aus Deutschland. Die Geschichte hinter Messerjocke.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bjoernhrd76-prog.github.io/messerjocke-site/about.html">
+
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface2: #1a1a26;
+      --border: #1e1e2e;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #7c5cff;
+      --accent-glow: rgba(124, 92, 255, 0.25);
+      --hot: #ff4d6a;
+      --green: #22c55e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg); color: var(--text); line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 2rem; background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(30,30,46,0.6); transition: background 0.3s;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      display: inline-flex; align-items: center; padding: 0.55rem 1.25rem;
+      background: var(--accent); color: #fff; text-decoration: none;
+      border-radius: 8px; font-size: 0.9rem; font-weight: 600; transition: all 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px var(--accent-glow); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 101; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none; position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 2rem 1.5rem; gap: 0; border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+    }
+
+    .page-hero {
+      padding: 8rem 2rem 4rem; text-align: center;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(124,92,255,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(255,77,106,0.05) 0%, transparent 50%);
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800;
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 1rem;
+    }
+    .page-hero h1 .grad {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--hot) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .section-title { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    .section-sub { color: var(--muted); margin-bottom: 3rem; max-width: 580px; font-size: 1rem; }
+
+    .story-block {
+      max-width: 720px; margin: 0 auto;
+    }
+    .story-block p {
+      color: var(--muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;
+    }
+    .story-block strong { color: var(--text); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.75rem; transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--hot));
+      transform: scaleX(0); transition: transform 0.3s;
+    }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .card:hover::before { transform: scaleX(1); }
+    .card-icon { font-size: 1.75rem; margin-bottom: 1rem; display: block; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; font-weight: 600; }
+    .card p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+
+    .stats-row {
+      display: flex; gap: 0; justify-content: center; flex-wrap: wrap;
+      border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+      margin-top: 3rem;
+    }
+    .stat {
+      text-align: center; padding: 2rem 2.5rem;
+      border-right: 1px solid var(--border); flex: 1; min-width: 140px;
+    }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: 2rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; }
+    .stat-label { font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.25rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 24px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(124,92,255,0.4); }
+    .btn-spotify { background: #1DB954; color: #fff; }
+    .btn-spotify:hover { background: #1ed760; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+    .cta-section {
+      background: radial-gradient(ellipse at 50% 0%, rgba(124,92,255,0.08) 0%, transparent 60%);
+      border-top: 1px solid var(--border); text-align: center; padding: 6rem 2rem;
+    }
+
+    footer {
+      text-align: center; padding: 2rem; color: var(--muted); font-size: 0.82rem;
+      border-top: 1px solid var(--border); display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem; max-width: 1100px; margin: 0 auto;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+
+    @media (max-width: 640px) {
+      .stat { padding: 1.5rem 1rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      footer { justify-content: center; }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Messerjocke",
+    "url": "https://bjoernhrd76-prog.github.io/messerjocke-site/",
+    "genre": ["Pop", "Latin", "Electro", "French Pop", "Lo-Fi", "Ambient", "Cinematic"],
+    "description": "KI-gestuetzte Musikproduktion aus Deutschland. Pop, Latin, Electro und mehr.",
+    "sameAs": [
+      "https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD",
+      "https://music.apple.com/search?term=Messerjocke",
+      "https://www.tiktok.com/@mrmesserjocke"
+    ],
+    "email": "messerjocke@proton.me"
+  }
+  </script>
+</head>
+<body>
+
+  <nav aria-label="Hauptnavigation">
+    <a href="index.html" class="nav-logo" aria-label="Messerjocke Startseite">Messer<span>jocke</span></a>
+    <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="navigation">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="email-service.html">Email-Automation</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="blog/">Blog</a></li>
+    </ul>
+    <a href="mailto:messerjocke@proton.me?subject=Anfrage" class="nav-cta">Anfrage senden</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <h1>Die Story hinter <span class="grad">Messerjocke</span></h1>
+    <p>KI-gestuetzte Musikproduktion aus Deutschland. Schnell, fair, qualitaetsgesichert.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- STORY -->
+  <section class="section">
+    <p class="section-label">Unsere Geschichte</p>
+    <h2 class="section-title">Wie alles begann</h2>
+
+    <div class="story-block fade-in">
+      <p>
+        <strong>Messerjocke</strong> entstand aus einer einfachen Beobachtung: Gute Musik ist teuer, langsam und fuer viele Creator und kleine Unternehmen unerreichbar. Gleichzeitig hat die KI-Technologie einen Punkt erreicht, an dem Musikproduktion in professioneller Qualitaet moeglich ist — schnell, kosteneffizient und vielseitig.
+      </p>
+      <p>
+        Die Idee war klar: <strong>KI als Werkzeug nutzen, nicht als Ersatz.</strong> Jeder Track wird durch KI generiert, aber von einem Menschen bewertet, kuratiert und qualitaetsgesichert, bevor er ausgeliefert wird. Das Ergebnis: Musik, die sich professionell anhoert, in unter 48 Stunden geliefert wird und fuer jeden Geldbeutel erschwinglich ist.
+      </p>
+      <p>
+        Heute produziert Messerjocke in ueber 5 Genres und 4 Sprachen. Unsere Tracks sind auf Spotify, Apple Music, Amazon Music und ueber 30 weiteren Plattformen weltweit verfuegbar. Neben Musik bieten wir auch Email-Automatisierung fuer kleine Betriebe an — denn die gleiche KI-Kompetenz, die gute Musik produziert, kann auch Geschaeftsprozesse intelligenter machen.
+      </p>
+    </div>
+
+    <div class="stats-row fade-in">
+      <div class="stat">
+        <div class="stat-num">60+</div>
+        <div class="stat-label">Produzierte Tracks</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">37+</div>
+        <div class="stat-label">Songs auf Streaming</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Genres</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Sprachen</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHY AI MUSIC -->
+  <section class="section">
+    <p class="section-label">Warum KI-Musik</p>
+    <h2 class="section-title">Drei Gruende, warum KI-Musik Sinn macht</h2>
+    <p class="section-sub">Es geht nicht darum, Musiker zu ersetzen. Es geht darum, Musik zugaenglich zu machen.</p>
+
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">⚡</span>
+        <h3>Geschwindigkeit</h3>
+        <p>Ein traditionelles Studio braucht Wochen. Wir liefern in unter 48 Stunden. Fuer Creator, die nicht warten koennen und wollen.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">💰</span>
+        <h3>Kosten</h3>
+        <p>Professionelle Musikproduktion startet oft bei 500 EUR aufwaerts. Bei uns ab 29 EUR — mit kommerzieller Lizenz und sofort einsatzbereit.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🎯</span>
+        <h3>Qualitaet</h3>
+        <p>Jeder Track wird bewertet und kuratiert. KI produziert, Menschen pruefen. Das Ergebnis: konsistente Qualitaet bei jeder Lieferung.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TECHNOLOGY -->
+  <section class="section">
+    <p class="section-label">Technologie</p>
+    <h2 class="section-title">Wie wir arbeiten</h2>
+    <p class="section-sub">Unser Workflow verbindet modernste KI-Technologie mit menschlicher Qualitaetskontrolle.</p>
+
+    <div class="grid">
+      <div class="card fade-in">
+        <span class="card-icon">🧠</span>
+        <h3>KI-Generierung</h3>
+        <p>Wir nutzen spezialisierte KI-Modelle fuer Musikgenerierung. Genre, Stimmung, Tempo und Sprache werden als Parameter definiert und die KI produziert Varianten.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-1">
+        <span class="card-icon">👂</span>
+        <h3>Menschliche Kuratierung</h3>
+        <p>Jeder generierte Track wird angehoert, bewertet und bei Bedarf verfeinert. Nur Tracks, die unseren Qualitaetsstandard erfuellen, werden ausgeliefert.</p>
+      </div>
+      <div class="card fade-in fade-in-delay-2">
+        <span class="card-icon">🎛️</span>
+        <h3>Mastering &amp; Delivery</h3>
+        <p>Finale Tracks werden gemastert und in mehreren Formaten (MP3, WAV, Stems) ausgeliefert. Streaming-Distribution ueber DistroKid weltweit.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ARTIST PROFILE -->
+  <section class="section" style="text-align:center;">
+    <p class="section-label" style="text-align:center;">Kuenstlerprofil</p>
+    <h2 class="section-title">Messerjocke auf Streaming</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;margin-bottom:2rem;font-size:1rem;max-width:600px;margin-left:auto;margin-right:auto;">
+      Unsere Musik ist weltweit auf allen grossen Streaming-Plattformen verfuegbar. Hoer rein und ueberzeuge dich selbst.
+    </p>
+
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify">
+        ▶ Spotify oeffnen
+      </a>
+      <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline">
+        🎵 Apple Music
+      </a>
+      <a href="https://www.tiktok.com/@mrmesserjocke" target="_blank" rel="noopener" class="btn btn-outline">
+        📱 TikTok
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <p class="section-label" style="text-align:center;">Zusammenarbeiten</p>
+    <h2 class="section-title">Lass uns dein Projekt besprechen</h2>
+    <p style="color:var(--muted);margin-top:0.5rem;margin-bottom:2rem;font-size:1rem;">
+      Ob Musik oder Email-Automation — schreib uns und wir finden die passende Loesung.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="kontakt.html" class="btn btn-primary">Kontakt aufnehmen</a>
+      <a href="services.html" class="btn btn-outline">Services ansehen</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Messerjocke AI Music Production. Alle Rechte vorbehalten.</span>
+    <span>
+      <a href="kontakt.html">Kontakt</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
+    </span>
+  </footer>
+
+  <noscript><style>.fade-in{opacity:1;transform:none;}.nav-links{display:flex!important;}</style></noscript>
+  <script>
+    function toggleMobileMenu(){const b=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');const o=l.classList.toggle('open');b.classList.toggle('active');b.setAttribute('aria-expanded',o);}
+    document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('active');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');}));
+    const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
+    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+  </script>
+</body>
+</html>
