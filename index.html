@@ -4,13 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messerjocke – AI Music Production</title>
-  <meta name="description" content="KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundmusik, vollständige Songs – schnell, günstig, professionell.">
+  <meta name="description" content="Messerjocke AI Music Production – KI-generierte Musik kaufen: Jingles, Hintergrundmusik, Songs mit Gesang. Kommerzielle Lizenz, Lieferung in 48h. Pop, Latin, Electro, Lo-Fi und mehr.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bjoernhrd76-prog.github.io/messerjocke-site/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B5%3C/text%3E%3C/svg%3E">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Messerjocke – AI Music Production">
   <meta property="og:description" content="Custom AI-Musik: Jingles, Background Tracks, Full Songs. Lieferung in unter 48h.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://messerjocke.de">
+  <meta property="og:url" content="https://bjoernhrd76-prog.github.io/messerjocke-site/">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://open.spotify.com" crossorigin>
+  <link rel="dns-prefetch" href="https://open.spotify.com">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -43,7 +51,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* === NAV === */
     nav {
       position: fixed;
       top: 0;
@@ -107,11 +114,52 @@
       box-shadow: 0 4px 16px var(--accent-glow);
     }
 
-    @media (max-width: 640px) {
-      .nav-links { display: none; }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 101;
     }
 
-    /* === HERO === */
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(10,10,15,0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 1rem 2rem 1.5rem;
+        gap: 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+      .nav-links li:last-child { border-bottom: none; }
+      .nav-links a { font-size: 1rem; }
+    }
+
     .hero {
       min-height: 100vh;
       display: flex;
@@ -248,7 +296,6 @@
       position: relative;
     }
 
-    /* === STATS === */
     .stats {
       display: flex;
       gap: 0;
@@ -283,7 +330,6 @@
       margin-top: 0.25rem;
     }
 
-    /* === SECTIONS === */
     .section {
       max-width: 1100px;
       margin: 0 auto;
@@ -313,7 +359,6 @@
       font-size: 1rem;
     }
 
-    /* === SERVICES GRID === */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -361,7 +406,6 @@
       line-height: 1.6;
     }
 
-    /* === LISTEN SECTION === */
     .listen-section {
       background: var(--surface);
       border-top: 1px solid var(--border);
@@ -394,7 +438,6 @@
       flex-wrap: wrap;
     }
 
-    /* === PLATFORMS === */
     .platforms {
       display: flex;
       gap: 1rem;
@@ -416,7 +459,6 @@
       color: var(--muted);
     }
 
-    /* === PRICING === */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -511,7 +553,6 @@
       background-position: center;
     }
 
-    /* === FAQ === */
     .faq-list {
       display: flex;
       flex-direction: column;
@@ -566,7 +607,6 @@
 
     .faq-item.open .faq-a { display: block; }
 
-    /* === CONTACT === */
     .contact-section {
       background: radial-gradient(ellipse at 50% 0%, rgba(124,92,255,0.08) 0%, transparent 60%);
       border-top: 1px solid var(--border);
@@ -602,7 +642,6 @@
       margin-top: 2rem;
     }
 
-    /* === FOOTER === */
     footer {
       text-align: center;
       padding: 2rem;
@@ -625,7 +664,6 @@
 
     footer a:hover { color: var(--text); }
 
-    /* === ANIMATIONS === */
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -641,7 +679,6 @@
     .fade-in-delay-2 { transition-delay: 0.2s; }
     .fade-in-delay-3 { transition-delay: 0.3s; }
 
-    /* === RESPONSIVE === */
     @media (max-width: 640px) {
       .stat { padding: 1.75rem 1.25rem; border-right: none; border-bottom: 1px solid var(--border); }
       .stat:last-child { border-bottom: none; }
@@ -650,19 +687,72 @@
       footer { justify-content: center; }
     }
   </style>
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "MusicGroup",
+    "name": "Messerjocke",
+    "url": "https://bjoernhrd76-prog.github.io/messerjocke-site/",
+    "genre": ["Pop", "Latin", "Electro", "French Pop", "Lo-Fi", "Ambient", "Cinematic"],
+    "description": "KI-generierte Musik fuer Creator, Marken und Unternehmen. Jingles, Hintergrundmusik und vollstaendige Songs.",
+    "sameAs": [
+      "https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD",
+      "https://music.apple.com/search?term=Messerjocke"
+    ],
+    "email": "messerjocke@proton.me"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Messerjocke AI Music Production",
+    "url": "https://bjoernhrd76-prog.github.io/messerjocke-site/",
+    "email": "messerjocke@proton.me",
+    "description": "AI Music Production Service – Jingles, Hintergrundmusik, Songs mit kommerzieller Lizenz. Lieferung in unter 48 Stunden.",
+    "priceRange": "€29–€149",
+    "knowsLanguage": ["de", "en", "es", "fr"],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Starter Pack",
+        "price": "29",
+        "priceCurrency": "EUR",
+        "description": "3 Jingles oder Kurztracks mit kommerzieller Lizenz"
+      },
+      {
+        "@type": "Offer",
+        "name": "Creator Pack",
+        "price": "79",
+        "priceCurrency": "EUR",
+        "description": "10 Hintergrundtracks mit Stems und kommerzieller Lizenz"
+      },
+      {
+        "@type": "Offer",
+        "name": "Custom Track",
+        "price": "149",
+        "priceCurrency": "EUR",
+        "description": "Vollstaendiger Song mit Gesang, Cover Art und 2 Revisionen"
+      }
+    ]
+  }]
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">Messer<span>jocke</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#listen">Musik</a></li>
-      <li><a href="#pricing">Preise</a></li>
-      <li><a href="#faq">FAQ</a></li>
+  <nav aria-label="Hauptnavigation">
+    <a href="#" class="nav-logo" aria-label="Messerjocke Startseite">Messer<span>jocke</span></a>
+    <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links" role="navigation">
+      <li><a href="#services" aria-label="Zu Services springen">Services</a></li>
+      <li><a href="#listen" aria-label="Zu Musik hoeren springen">Musik</a></li>
+      <li><a href="#pricing" aria-label="Zu Preise springen">Preise</a></li>
+      <li><a href="#faq" aria-label="Zu FAQ springen">FAQ</a></li>
     </ul>
-    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta">Anfrage senden</a>
+    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta" aria-label="Anfrage per E-Mail senden">Anfrage senden</a>
   </nav>
 
   <!-- HERO -->
@@ -674,13 +764,13 @@
     <h1>Musik, die <span class="grad">bewegt</span>.<br>Produziert von KI.<br>Kuratiert von Menschen.</h1>
     <p class="hero-sub">KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundtracks, vollständige Songs — schnell geliefert, fair berechnet.</p>
     <div class="cta-row">
-      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary">
+      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary" aria-label="Jetzt per E-Mail anfragen">
         ✉ Jetzt anfragen
       </a>
-      <a href="#listen" class="btn btn-spotify">
+      <a href="#listen" class="btn btn-spotify" aria-label="Musik-Beispiele anhoeren">
         ▶ Musik hören
       </a>
-      <a href="#services" class="btn btn-outline">Services ansehen</a>
+      <a href="#services" class="btn btn-outline" aria-label="Unsere Services ansehen">Services ansehen</a>
     </div>
     <p class="hero-note">Erste Antwort innerhalb von 24 Stunden &nbsp;·&nbsp; Lieferung in unter 48h</p>
   </section>
@@ -764,10 +854,10 @@
     </div>
 
     <div class="listen-cta">
-      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify">
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify" aria-label="Messerjocke auf Spotify oeffnen">
         ▶ Auf Spotify öffnen
       </a>
-      <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline">
+      <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Messerjocke auf Apple Music suchen">
         🎵 Apple Music
       </a>
     </div>
@@ -928,7 +1018,33 @@
     </span>
   </footer>
 
+  <noscript>
+    <style>
+      .fade-in { opacity: 1; transform: none; }
+      .nav-links { display: flex !important; }
+      .faq-a { display: block; }
+    </style>
+  </noscript>
+
   <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const btn = document.querySelector('.nav-toggle');
+      const links = document.getElementById('nav-links');
+      const isOpen = links.classList.toggle('open');
+      btn.classList.toggle('active');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('#nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+        document.querySelector('.nav-toggle').classList.remove('active');
+        document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // FAQ Toggle
     function toggleFaq(btn) {
       const item = btn.parentElement;
