@@ -968,7 +968,7 @@
           <span class="chevron">▾</span>
         </button>
         <div class="faq-a">
-          Creator Pack enthält 1 kostenlose Revision, Custom Track enthält 2 Revisionen. Wir arbeiten so lange, bis du zufrieden bist. Dein Brief ist unser Ausgangspunkt — je detaillierter, desto besser das Ergebnis.
+          Creator Pack enth&auml;lt 1 Revision pro Stimmung, Custom Production enth&auml;lt bis zu 3 Revisionen. Wir arbeiten so lange, bis du zufrieden bist. Dein Brief ist unser Ausgangspunkt — je detaillierter, desto besser das Ergebnis.
         </div>
       </div>
       <div class="faq-item">
@@ -1020,6 +1020,10 @@
       &nbsp;&middot;&nbsp;
       <a href="kontakt.html">Kontakt</a>
       &nbsp;&middot;&nbsp;
+      <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+      &nbsp;&middot;&nbsp;
       <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
     </span>
   </footer>
@@ -1069,7 +1073,15 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => {
+      // Elemente die beim Laden bereits im Viewport sind sofort sichtbar machen
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+      } else {
+        observer.observe(el);
+      }
+    });
 
     // Nav shadow on scroll
     const nav = document.querySelector('nav');

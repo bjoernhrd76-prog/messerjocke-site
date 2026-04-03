@@ -272,7 +272,7 @@
       <div class="card fade-in fade-in-delay-1">
         <span class="card-icon">💰</span>
         <h3>Kosten</h3>
-        <p>Professionelle Musikproduktion startet oft bei 500 EUR aufwaerts. Bei uns ab 29 EUR — mit kommerzieller Lizenz und sofort einsatzbereit.</p>
+        <p>Professionelle Musikproduktion startet oft bei 500 EUR aufwaerts. Bei uns ab 79 EUR — mit kommerzieller Lizenz und sofort einsatzbereit.</p>
       </div>
       <div class="card fade-in fade-in-delay-2">
         <span class="card-icon">🎯</span>
@@ -350,6 +350,10 @@
     <span>
       <a href="kontakt.html">Kontakt</a>
       &nbsp;&middot;&nbsp;
+      <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+      &nbsp;&middot;&nbsp;
       <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
     </span>
   </footer>
@@ -359,7 +363,7 @@
     function toggleMobileMenu(){const b=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');const o=l.classList.toggle('open');b.classList.toggle('active');b.setAttribute('aria-expanded',o);}
     document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('active');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');}));
     const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
-    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){el.classList.add('visible');}else{observer.observe(el);}});
   </script>
 </body>
 </html>

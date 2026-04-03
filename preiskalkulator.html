@@ -48,19 +48,19 @@
       <h2>1. Was brauchst du?</h2>
       <div class="option-grid">
         <div class="option-card" onclick="selectService('starter')" id="opt-starter">
-          <div class="name">Starter Pack</div>
-          <div class="price">29 €</div>
-          <div class="desc">1 Custom Track<br>Jingle oder Background</div>
+          <div class="name">Starter</div>
+          <div class="price">79 &euro;</div>
+          <div class="desc">2 Songs im Wunschgenre<br>Du w&auml;hlst deinen Favoriten</div>
         </div>
         <div class="option-card" onclick="selectService('creator')" id="opt-creator">
-          <div class="name">Creator Pack</div>
-          <div class="price">79 €</div>
-          <div class="desc">3 Tracks + Social Cuts<br>15s, 30s, 60s Versionen</div>
+          <div class="name">Content Creator Pack</div>
+          <div class="price">249 &euro;</div>
+          <div class="desc">10 Songs aus 5 Stimmungen<br>F&uuml;r YouTube, Podcast, Social</div>
         </div>
         <div class="option-card" onclick="selectService('full')" id="opt-full">
-          <div class="name">Musik-Pack</div>
-          <div class="price">149 €</div>
-          <div class="desc">Full Custom Song<br>Vocals + Instrumental</div>
+          <div class="name">Custom Production</div>
+          <div class="price">249 &euro;</div>
+          <div class="desc">2 Songs nach Briefing<br>Cover Art inklusive</div>
         </div>
       </div>
     </div>
@@ -110,9 +110,9 @@
 
   <script>
     let selectedService = null;
-    const prices = { starter: 29, creator: 79, full: 149 };
-    const extraPrices = { rush: 19, stems: 29, revision: 19, social: 15, loop: 9 };
-    const names = { starter: 'Starter Pack', creator: 'Creator Pack', full: 'Musik-Pack' };
+    const prices = { starter: 79, creator: 249, full: 249 };
+    const extraPrices = { rush: 29, stems: 39, revision: 29, social: 19, loop: 15 };
+    const names = { starter: 'Starter', creator: 'Content Creator Pack', full: 'Custom Production' };
 
     function selectService(s) {
       selectedService = s;

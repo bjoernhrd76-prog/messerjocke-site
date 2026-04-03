@@ -282,9 +282,9 @@
         <div class="info-card">
           <h4>Schnellanfragen</h4>
           <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem;">
-            <a href="mailto:messerjocke@proton.me?subject=Starter%20Pack%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">→ Starter Pack anfragen (€29)</a>
-            <a href="mailto:messerjocke@proton.me?subject=Creator%20Pack%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">→ Creator Pack anfragen (€79)</a>
-            <a href="mailto:messerjocke@proton.me?subject=Custom%20Track%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">→ Custom Track anfragen (€149)</a>
+            <a href="mailto:messerjocke@proton.me?subject=Starter%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">&rarr; Starter &mdash; 2 Songs im Wunschgenre (&euro;79)</a>
+            <a href="mailto:messerjocke@proton.me?subject=Creator%20Pack%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">&rarr; Content Creator Pack &mdash; 10 Songs (&euro;249)</a>
+            <a href="mailto:messerjocke@proton.me?subject=Custom%20Production%20Anfrage" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">&rarr; Custom Production &mdash; nach Briefing (&euro;249)</a>
             <a href="mailto:messerjocke@proton.me?subject=Demo%20Email-Automatisierung" style="color:var(--accent);text-decoration:none;font-size:0.95rem;font-weight:500;">→ Email-Automation Demo (kostenlos)</a>
           </div>
         </div>
@@ -397,6 +397,10 @@
     <span>
       <a href="kontakt.html">Kontakt</a>
       &nbsp;&middot;&nbsp;
+      <a href="impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="datenschutz.html">Datenschutz</a>
+      &nbsp;&middot;&nbsp;
       <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener">Spotify</a>
     </span>
   </footer>
@@ -407,7 +411,7 @@
     document.querySelectorAll('#nav-links a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('nav-links').classList.remove('open');document.querySelector('.nav-toggle').classList.remove('active');document.querySelector('.nav-toggle').setAttribute('aria-expanded','false');}));
     function toggleFaq(btn){const item=btn.parentElement;const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
     const observer=new IntersectionObserver(e=>{e.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}});},{threshold:0.1});
-    document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0){el.classList.add('visible');}else{observer.observe(el);}});
   </script>
 </body>
 </html>
