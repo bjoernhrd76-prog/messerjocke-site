@@ -41,6 +41,16 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* A11y: Focus-Styles global */
+    *:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+    /* A11y: Skip-to-content Link */
+    .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 0.75rem 1.5rem; border-radius: 0 0 8px 8px; font-weight: 700; font-size: 0.9rem; z-index: 200; text-decoration: none; transition: top 0.2s; }
+    .skip-link:focus { top: 0; }
+
+    /* A11y: prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -260,7 +270,7 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #fff;
+      color: #000;
       box-shadow: 0 4px 24px var(--accent-glow);
     }
 
@@ -282,7 +292,7 @@
 
     .btn-spotify {
       background: #1DB954;
-      color: #fff;
+      color: #000;
     }
 
     .btn-spotify:hover {
@@ -665,6 +675,10 @@
 
     footer a:hover { color: var(--text); }
 
+    /* A11y: Links visuell erkennbar machen (Finding 7) */
+    a:not(.btn):not(.nav-logo):not(.nav-cta):not(.contact-email) { text-decoration-line: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.2); }
+    a:not(.btn):not(.nav-logo):not(.nav-cta):not(.contact-email):hover { text-decoration-color: currentColor; }
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -740,6 +754,7 @@
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Zum Inhalt springen</a>
 
   <!-- NAV -->
   <nav aria-label="Hauptnavigation">
@@ -747,7 +762,7 @@
     <button class="nav-toggle" aria-label="Menue oeffnen" aria-expanded="false" onclick="toggleMobileMenu()">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links" id="nav-links" role="navigation">
+    <ul class="nav-links" id="nav-links">
       <li><a href="services.html" aria-label="Alle Services ansehen">Services</a></li>
       <li><a href="about.html" aria-label="Ueber Messerjocke">About</a></li>
       <li><a href="email-service.html" aria-label="Email-Automatisierung">Email-Automation</a></li>
@@ -756,6 +771,8 @@
     </ul>
     <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta" aria-label="Anfrage per E-Mail senden">Anfrage senden</a>
   </nav>
+
+  <main id="main-content">
 
   <!-- HERO -->
   <section class="hero">
@@ -767,10 +784,10 @@
     <p class="hero-sub">KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundtracks, vollständige Songs — schnell geliefert, fair berechnet.</p>
     <div class="cta-row">
       <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary" aria-label="Jetzt per E-Mail anfragen">
-        ✉ Jetzt anfragen
+        <span aria-hidden="true">✉</span> Jetzt anfragen
       </a>
       <a href="#listen" class="btn btn-spotify" aria-label="Musik-Beispiele anhoeren">
-        ▶ Musik hören
+        <span aria-hidden="true">▶</span> Musik hören
       </a>
       <a href="#services" class="btn btn-outline" aria-label="Unsere Services ansehen">Services ansehen</a>
     </div>
@@ -804,32 +821,32 @@
     <p class="section-sub">KI-generiert, menschlich kuratiert. Jeder Track wird bewertet, geprüft und gemastert, bevor er ausgeliefert wird.</p>
     <div class="grid">
       <div class="card fade-in">
-        <span class="card-icon">🎵</span>
+        <span class="card-icon" aria-hidden="true">🎵</span>
         <h3>Jingles &amp; Intros</h3>
         <p>Kurze, prägnante Tracks für Podcasts, YouTube-Kanäle, Markenvideos und Apps. 5–30 Sekunden, jeder Stil.</p>
       </div>
       <div class="card fade-in fade-in-delay-1">
-        <span class="card-icon">🎧</span>
+        <span class="card-icon" aria-hidden="true">🎧</span>
         <h3>Hintergrundmusik</h3>
         <p>Ambient, Lo-Fi, Cinematic oder Upbeat. Perfekt für Content, Werbung, Präsentationen und Wartebereiche.</p>
       </div>
       <div class="card fade-in fade-in-delay-2">
-        <span class="card-icon">🎤</span>
+        <span class="card-icon" aria-hidden="true">🎤</span>
         <h3>Vollständige Songs</h3>
         <p>Komplette Songs mit Gesang, Lyrics und Produktion. Pop, Latin, Electro, French Pop und mehr.</p>
       </div>
       <div class="card fade-in">
-        <span class="card-icon">⚡</span>
+        <span class="card-icon" aria-hidden="true">⚡</span>
         <h3>Custom Production</h3>
         <p>Beschreibe was du brauchst. Genre, Stimmung, Tempo, Sprache. Wir produzieren, du genehmigst. Revisionen inklusive.</p>
       </div>
       <div class="card fade-in fade-in-delay-1">
-        <span class="card-icon">🎬</span>
+        <span class="card-icon" aria-hidden="true">🎬</span>
         <h3>Social Media Assets</h3>
         <p>Fertig für TikTok, Reels und YouTube Shorts. Musik + Visuals + Captions in einem Paket.</p>
       </div>
       <div class="card fade-in fade-in-delay-2">
-        <span class="card-icon">📦</span>
+        <span class="card-icon" aria-hidden="true">📦</span>
         <h3>Musik-Packs</h3>
         <p>Vorgefertigte Bundles: 5 oder 10 Tracks zu einem Thema. Herunterladen, nutzen, fertig. Kommerzielle Lizenz inklusive.</p>
       </div>
@@ -856,7 +873,7 @@
         <div class="fp-artist">Messerjocke &middot; Punk Rock</div>
         <div class="fp-progress-wrap" id="fpProgressWrap">
           <span class="fp-time" id="fpTimeCurrent">0:00</span>
-          <div class="fp-bar" id="fpBar">
+          <div class="fp-bar" id="fpBar" tabindex="0" role="slider" aria-label="Song-Fortschritt" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
             <div class="fp-bar-fill" id="fpBarFill"></div>
             <div class="fp-bar-glow" id="fpBarGlow"></div>
           </div>
@@ -977,11 +994,13 @@
         player.classList.add('is-playing');
         iconPlay.style.display = 'none';
         iconPause.style.display = '';
+        playBtn.setAttribute('aria-label', 'Pausieren');
       } else {
         audio.pause();
         player.classList.remove('is-playing');
         iconPlay.style.display = '';
         iconPause.style.display = 'none';
+        playBtn.setAttribute('aria-label', 'Abspielen');
       }
     });
 
@@ -995,6 +1014,7 @@
       barFill.style.width = pct + '%';
       barGlow.style.left = 'calc(' + pct + '% - 10px)';
       timeCur.textContent = fmt(audio.currentTime);
+      bar.setAttribute('aria-valuenow', Math.round(pct));
     });
 
     bar.addEventListener('click', function(e) {
@@ -1004,10 +1024,23 @@
       audio.currentTime = pct * audio.duration;
     });
 
+    // A11y: Keyboard navigation for progress bar (Finding 15)
+    bar.addEventListener('keydown', function(e) {
+      if (!audio.duration) return;
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        audio.currentTime = Math.min(audio.duration, audio.currentTime + 5);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        audio.currentTime = Math.max(0, audio.currentTime - 5);
+      }
+    });
+
     audio.addEventListener('ended', function() {
       player.classList.remove('is-playing');
       iconPlay.style.display = '';
       iconPause.style.display = 'none';
+      playBtn.setAttribute('aria-label', 'Abspielen');
       barFill.style.width = '0%';
       timeCur.textContent = '0:00';
     });
@@ -1029,26 +1062,27 @@
         frameBorder="0"
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy">
+        loading="lazy"
+        title="Messerjocke Spotify Kuenstlerprofil">
       </iframe>
     </div>
 
     <div class="listen-cta">
       <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify" aria-label="Messerjocke auf Spotify oeffnen">
-        ▶ Auf Spotify öffnen
+        <span aria-hidden="true">▶</span> Auf Spotify öffnen
       </a>
       <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Messerjocke auf Apple Music suchen">
-        🎵 Apple Music
+        <span aria-hidden="true">🎵</span> Apple Music
       </a>
     </div>
 
     <div class="platforms">
-      <span class="platform-chip">✓ Spotify</span>
-      <span class="platform-chip">✓ Apple Music</span>
-      <span class="platform-chip">✓ Amazon Music</span>
-      <span class="platform-chip">✓ YouTube Music</span>
-      <span class="platform-chip">✓ Deezer</span>
-      <span class="platform-chip">✓ Tidal</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> Spotify</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> Apple Music</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> Amazon Music</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> YouTube Music</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> Deezer</span>
+      <span class="platform-chip"><span aria-hidden="true">✓</span> Tidal</span>
       <span class="platform-chip">+ 30 weitere</span>
     </div>
   </section>
@@ -1114,56 +1148,56 @@
 
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-1">
           Wie lange dauert die Lieferung?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-1">
           Standard-Lieferzeit sind 24–48 Stunden nach Auftragseingang. Für komplexe Custom Tracks kann es bis zu 72 Stunden dauern. Auf Wunsch ist Express-Lieferung möglich.
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-2">
           Darf ich die Musik kommerziell nutzen?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-2">
           Ja. Alle Tracks kommen mit vollständiger kommerzieller Lizenz. Du darfst sie in YouTube-Videos, Werbung, Podcasts, Apps und anderen kommerziellen Projekten nutzen.
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-3">
           Welche Genres sind möglich?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-3">
           Wir produzieren Pop, Latin, Electro, French Pop, Deutschpop, Lo-Fi, Ambient, Cinematic und mehr. Wenn du ein spezifisches Genre oder eine Stimmung im Kopf hast, schreib uns einfach.
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-4">
           Was passiert, wenn mir der Track nicht gefällt?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-4">
           Creator Pack enth&auml;lt 1 Revision pro Stimmung, Custom Production enth&auml;lt bis zu 3 Revisionen. Wir arbeiten so lange, bis du zufrieden bist. Dein Brief ist unser Ausgangspunkt — je detaillierter, desto besser das Ergebnis.
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-5">
           Bekomme ich die Stems (einzelne Spuren)?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-5">
           Stems (einzelne Spuren f&uuml;r Gesang, Instrumente, Rhythmus) sind auf Anfrage verf&uuml;gbar. Sprich uns einfach an &mdash; wir kl&auml;ren, was f&uuml;r dein Projekt m&ouml;glich ist.
         </div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false" aria-controls="faq-answer-6">
           In welchen Sprachen produziert ihr?
           <span class="chevron">▾</span>
         </button>
-        <div class="faq-a">
+        <div class="faq-a" id="faq-answer-6">
           Aktuell: Deutsch, Englisch, Spanisch und Französisch. Weitere Sprachen auf Anfrage.
         </div>
       </div>
@@ -1177,7 +1211,7 @@
     <p style="color:var(--muted);margin-top:0.5rem;font-size:0.95rem;">Schick uns dein Brief. Erste Antwort innerhalb von 24 Stunden.</p>
     <div style="margin-top:2rem;">
       <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="contact-email">
-        ✉ messerjocke@proton.me
+        <span aria-hidden="true">✉</span> messerjocke@proton.me
       </a>
       <p class="contact-meta">Oder schreib uns direkt:</p>
     </div>
@@ -1187,11 +1221,11 @@
       <input type="hidden" name="access_key" value="[WEB3FORMS_ACCESS_KEY_HIER_EINTRAGEN]">
       <input type="hidden" name="subject" value="Neue Anfrage ueber messerjocke-music.de">
       <input type="hidden" name="redirect" value="https://messerjocke-music.de/kontakt.html">
-      <input type="text" name="name" placeholder="Dein Name" required
-        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;outline:none;">
-      <input type="email" name="email" placeholder="Deine Email" required
-        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;outline:none;">
-      <select name="service" style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--muted);font-size:0.95rem;outline:none;">
+      <input type="text" name="name" placeholder="Dein Name" required aria-label="Dein Name" autocomplete="name"
+        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;">
+      <input type="email" name="email" placeholder="Deine Email" required aria-label="Deine Email-Adresse" autocomplete="email"
+        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;">
+      <select name="service" aria-label="Service waehlen" style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--muted);font-size:0.95rem;">
         <option value="">Service waehlen (optional)</option>
         <option value="Starter (79 EUR)">Starter — 2 Songs (79 EUR)</option>
         <option value="Creator Pack (249 EUR)">Content Creator Pack (249 EUR)</option>
@@ -1199,8 +1233,8 @@
         <option value="Email-Automation">Email-Automatisierung</option>
         <option value="Sonstiges">Sonstiges</option>
       </select>
-      <textarea name="message" placeholder="Deine Nachricht" rows="4" required
-        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;outline:none;resize:vertical;"></textarea>
+      <textarea name="message" placeholder="Deine Nachricht" rows="4" required aria-label="Deine Nachricht"
+        style="padding:0.8rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:0.95rem;resize:vertical;"></textarea>
       <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Nachricht senden</button>
       <p style="font-size:0.75rem;color:var(--muted);text-align:center;">Wir antworten innerhalb von 24 Stunden. Deine Daten werden nur zur Kontaktaufnahme verwendet.</p>
     </form>
@@ -1211,6 +1245,8 @@
       <a href="mailto:messerjocke@proton.me?subject=Custom%20Production%20Anfrage" class="btn btn-outline">Custom anfragen</a>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER -->
   <footer>
@@ -1239,13 +1275,19 @@
   </noscript>
 
   <script>
-    // Mobile menu toggle
+    // Mobile menu toggle (A11y: Finding 23 — dynamisches aria-label)
     function toggleMobileMenu() {
       const btn = document.querySelector('.nav-toggle');
       const links = document.getElementById('nav-links');
       const isOpen = links.classList.toggle('open');
       btn.classList.toggle('active');
       btn.setAttribute('aria-expanded', isOpen);
+      btn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+      // A11y Finding 17: Focus auf erstes Menu-Item bei Oeffnen
+      if (isOpen) {
+        var firstLink = links.querySelector('a');
+        if (firstLink) firstLink.focus();
+      }
     }
 
     // Close mobile menu on link click
@@ -1254,15 +1296,61 @@
         document.getElementById('nav-links').classList.remove('open');
         document.querySelector('.nav-toggle').classList.remove('active');
         document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+        document.querySelector('.nav-toggle').setAttribute('aria-label', 'Menü öffnen');
       });
     });
 
-    // FAQ Toggle
+    // A11y Finding 16: Escape-Taste schliesst mobiles Menu
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var links = document.getElementById('nav-links');
+        if (links.classList.contains('open')) {
+          links.classList.remove('open');
+          var btn = document.querySelector('.nav-toggle');
+          btn.classList.remove('active');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Menü öffnen');
+          btn.focus();
+        }
+      }
+    });
+
+    // A11y Finding 17: Focus-Trap im mobilen Menu
+    (function() {
+      var navLinks = document.getElementById('nav-links');
+      navLinks.addEventListener('keydown', function(e) {
+        if (e.key !== 'Tab' || !navLinks.classList.contains('open')) return;
+        var focusable = navLinks.querySelectorAll('a');
+        if (focusable.length === 0) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    })();
+
+    // FAQ Toggle (A11y: aria-expanded dynamisch)
     function toggleFaq(btn) {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      // Alle anderen schliessen + aria-expanded zuruecksetzen
+      document.querySelectorAll('.faq-item.open').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     }
 
     // Scroll fade-in
