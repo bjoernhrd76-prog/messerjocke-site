@@ -112,7 +112,7 @@
       align-items: center;
       padding: 0.55rem 1.25rem;
       background: var(--accent);
-      color: #fff;
+      color: #000;
       text-decoration: none;
       border-radius: 8px;
       font-size: 0.9rem;
@@ -351,7 +351,7 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--accent);
+      color: #9b82ff;
       font-weight: 600;
       margin-bottom: 0.75rem;
     }
@@ -497,7 +497,7 @@
       left: 50%;
       transform: translateX(-50%);
       background: var(--accent);
-      color: #fff;
+      color: #000;
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.06em;
@@ -769,7 +769,7 @@
       <li><a href="kontakt.html" aria-label="Kontaktseite">Kontakt</a></li>
       <li><a href="blog/" aria-label="Blog">Blog</a></li>
     </ul>
-    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta" aria-label="Anfrage per E-Mail senden">Anfrage senden</a>
+    <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="nav-cta" aria-label="Anfrage senden">Anfrage senden</a>
   </nav>
 
   <main id="main-content">
@@ -783,11 +783,11 @@
     <h1>Musik, die <span class="grad">bewegt</span>.<br>Produziert von KI.<br>Kuratiert von Menschen.</h1>
     <p class="hero-sub">KI-generierte Musik für Creator, Marken und Unternehmen. Jingles, Hintergrundtracks, vollständige Songs — schnell geliefert, fair berechnet.</p>
     <div class="cta-row">
-      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary" aria-label="Jetzt per E-Mail anfragen">
+      <a href="mailto:messerjocke@proton.me?subject=Music%20Anfrage" class="btn btn-primary">
         <span aria-hidden="true">✉</span> Jetzt anfragen
       </a>
-      <a href="#listen" class="btn btn-spotify" aria-label="Musik-Beispiele anhoeren">
-        <span aria-hidden="true">▶</span> Musik hören
+      <a href="#listen" class="btn btn-spotify" aria-label="Musik hören">
+        <span aria-hidden="true">&#9654;</span> Musik h&ouml;ren
       </a>
       <a href="#services" class="btn btn-outline" aria-label="Unsere Services ansehen">Services ansehen</a>
     </div>
@@ -929,7 +929,7 @@
       letter-spacing: -0.01em;
     }
     .fp-artist {
-      font-size: 0.82rem; color: var(--accent); font-weight: 600;
+      font-size: 0.82rem; color: #9b82ff; font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.2rem;
     }
     .fp-progress-wrap {
@@ -1068,8 +1068,8 @@
     </div>
 
     <div class="listen-cta">
-      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify" aria-label="Messerjocke auf Spotify oeffnen">
-        <span aria-hidden="true">▶</span> Auf Spotify öffnen
+      <a href="https://open.spotify.com/artist/4DhynD1iJwYZqwdwCwu2PD" target="_blank" rel="noopener" class="btn btn-spotify">
+        <span aria-hidden="true">&#9654;</span> Auf Spotify &ouml;ffnen
       </a>
       <a href="https://music.apple.com/search?term=Messerjocke" target="_blank" rel="noopener" class="btn btn-outline" aria-label="Messerjocke auf Apple Music suchen">
         <span aria-hidden="true">🎵</span> Apple Music
